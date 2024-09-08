@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+@import 'datatables.net-dt';
+
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+}

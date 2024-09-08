@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import DataTable from 'datatables.net-react';
+import DT from 'datatables.net-dt';
+
 import './App.css';
 
+DataTable.use(DT);
+
 function App() {
+  const columns = [
+    { data: 'name' },
+    { data: 'position' },
+    { data: 'office' },
+    { data: 'start_date' },
+    { data: 'salary' },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <div>
+        <h1>Ajax data source table</h1>
+        <h2>DataTables + React example</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This example demonstrates the <code>datatables.net-react</code>
+          package being used to display a DataTable with data sourced Ajax.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <p>
+          Full documentation for the DataTables React component is{' '}
+          <a href="https://datatables.net/manual/react">
+            available in the DataTables manual
+          </a>
+          .
+        </p>
+
+        <DataTable
+           ajax="data.json"
+           columns={columns}
+           className="display"
+           >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+        </DataTable>
+      </div>
+    </>
   );
 }
-
 export default App;
